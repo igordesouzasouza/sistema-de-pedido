@@ -22,7 +22,8 @@ class CreateUserService {
     if (userAlreadyExists) {
       throw new Error("Usuários já existe");
     }
-
+    //criptografia da senha
+    //a senha é criptografada com o bcryptjs, e o número 8 é a quantidade de vezes que a senha será criptografada
     const passwordHash = await hash(password, 8);
 
 

@@ -14,4 +14,7 @@ router.post('/session', new AuthUserController().handle)
 
 router.get('/me', isAuth, new DetailUserController().handle)
 
+//rotas de cateogorias
+
+
 export { router }; 

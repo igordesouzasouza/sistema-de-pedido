@@ -20,9 +20,9 @@ export function isAuth(req: Request, res: Response, next: Function) {
    try{
     //validando o token
         const {sub} = verify(token, process.env.JWT_SECRET) as IPayload;
-        // console.log(sub)
+        // recuperar o id do usuario e colocar em uma variavel
         req.user_id = sub;
-        
+
         return next();
    }catch(err) {
        return res.status(401).end();
