@@ -10,6 +10,7 @@ import uploadConfig from './config/multer'
 
 import { isAuth } from './middlewares/isAuth';
 import { CreatedProductController } from './controllers/product/CreatedProductController';
+import { ListByCategorieController } from './controllers/product/ListByCategorieController'
 
 const router = Router();
 
@@ -32,5 +33,7 @@ router.get('/category', isAuth, new ListCategorieController().handle)
 
 //rotas de produtos
 router.post('/product', isAuth, upload.single('file'), new CreatedProductController().handle)
+
+router.get('/product', isAuth, new ListByCategorieController().handle)
 
 export { router }; 
