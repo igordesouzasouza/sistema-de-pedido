@@ -3,9 +3,12 @@ import { CreateCategorieService } from "../../services/category/CreateCategorieS
 
 class CreateCategorieController {
    async handle(req: Request, res: Response) {
+      const { name } = req.body;
     const createCategorieService = new CreateCategorieService();
 
-    const category = await createCategorieService.execute()
+    const category = await createCategorieService.execute({
+         name
+    })
     return res.json(category)
    }    
 }
