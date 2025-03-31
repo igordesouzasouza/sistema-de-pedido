@@ -4,18 +4,25 @@ import { CreateUserController } from './controllers/user/CreateUserController'
 import { DetailUserController } from './controllers/user/DetailUserController'
 import {AuthUserController} from './controllers/user/AuthUserController'
 import { CreateCategorieController } from './controllers/category/CreateCategorieController'
+import { ListCategorieController } from './controllers/category/ListCategorieController'
 
 import { isAuth } from './middlewares/isAuth';
 
 const router = Router();
 
-//-- ROTAS USER --
+//rotas de usuarios
 router.post('/users', new CreateUserController().handle)
+
+//rotas de autenticacao
 router.post('/session', new AuthUserController().handle)
 
+//rotas de detalhes do usuario
 router.get('/me', isAuth, new DetailUserController().handle)
 
 //rotas de cateogorias
 router.post('/category', isAuth, new CreateCategorieController().handle)
+
+//listagem de categorias
+router.get('/category', isAuth, new ListCategorieController().handle)
 
 export { router }; 
