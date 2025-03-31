@@ -13,10 +13,10 @@ class CreatedProductController {
             throw new Error("File not found")
         }else{
             //capturando o nome do arquivo e o nome original
-            const {originalname, filename} = req.file;
+            const {originalname, filename: banner} = req.file;
             const product = await createdProductServices.execute({
                 name,
-                banner: '',
+                banner,
                 description,
                 price,
                 category_id,
