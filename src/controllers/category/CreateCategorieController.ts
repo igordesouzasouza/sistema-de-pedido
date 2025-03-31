@@ -6,7 +6,7 @@ class CreateCategorieController {
     const createCategorieService = new CreateCategorieService();
 
     const category = await createCategorieService.execute()
-    return (category)
+    return res.json(category)
    }    
 }
 
