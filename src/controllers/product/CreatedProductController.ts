@@ -9,7 +9,7 @@ class CreatedProductController {
         const createdProductServices = new CreatedProductServices();
         // Verifica se o arquivo foi enviado
         // Se o arquivo não foi enviado, lança um erro
-        if(req.file){
+        if(!req.file){
             throw new Error("File not found")
         }else{
             //capturando o nome do arquivo e o nome original
