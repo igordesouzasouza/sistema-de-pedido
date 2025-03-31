@@ -7,6 +7,7 @@ import { CreateCategorieController } from './controllers/category/CreateCategori
 import { ListCategorieController } from './controllers/category/ListCategorieController'
 
 import { isAuth } from './middlewares/isAuth';
+import { CreatedProductController } from './controllers/product/CreatedProductController';
 
 const router = Router();
 
@@ -24,5 +25,8 @@ router.post('/category', isAuth, new CreateCategorieController().handle)
 
 //listagem de categorias
 router.get('/category', isAuth, new ListCategorieController().handle)
+
+//rotas de produtos
+router.post('/product', isAuth, new CreatedProductController().handle)
 
 export { router }; 
