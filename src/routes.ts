@@ -11,6 +11,8 @@ import uploadConfig from './config/multer'
 import { isAuth } from './middlewares/isAuth';
 import { CreatedProductController } from './controllers/product/CreatedProductController';
 import { ListByCategorieController } from './controllers/product/ListByCategorieController'
+import { CreateOrderController } from './controllers/order/CreateOrderController';
+import { RemoveOrderController } from './controllers/order/RemoveOrderController';
 
 const router = Router();
 
@@ -34,6 +36,10 @@ router.get('/category', isAuth, new ListCategorieController().handle)
 //rotas de produtos
 router.post('/product', isAuth, upload.single('file'), new CreatedProductController().handle)
 
-router.get('/product', isAuth, new ListByCategorieController().handle)
+router.get('/category/product', isAuth, new ListByCategorieController().handle)
+
+router.post('/order', isAuth, new CreateOrderController().handle)
+
+router.delete('/order', isAuth, new RemoveOrderController().handle)
 
 export { router }; 
